@@ -1,0 +1,22 @@
+
+<% title "Computers"%>
+
+<% @computers.each do |computer|%>
+
+<div id='computer_<%= computer.id %>' class='computer'>
+    <p><strong>Model:</strong> <%= computer.model %> </p>
+    <p><strong>Price:</strong> <%= computer.price %> </p>
+    <p><strong>CPU:</strong> <%= computer.cpu %> </p>
+    <p><strong>OS:</strong> <%= computer.os %> </p>
+    <p><strong>Disk:</strong> <%= computer.disk %> </p>
+    <p><strong>RAM:</strong> <%= computer.ram %> </p>
+    <p><strong>Screen:</strong> <%= computer.screen %> </p>
+
+
+</div>
+
+<% end %>
+
+
+
+<%= link_to "New Computer", new_computer_path, class: "btn btn-primary" %>

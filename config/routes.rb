@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'computers/index'
+  resources :computers
   # get 'home/index'
   root to: 'home#index'
   get "about" => 'home#about'

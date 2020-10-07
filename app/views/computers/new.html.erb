@@ -1,0 +1,19 @@
+<% title "New Computer" %>
+
+
+
+<%= bootstrap_form_with(model: @computer, local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+ 
+  <%= f.text_field :model %>
+  <%= f.text_field :price %>
+  <%= f.text_field :cpu %>
+  <%= f.text_field :os %>
+  <%= f.text_field :disk %>
+  <%= f.text_field :ram %>
+  <%= f.text_field :screen %>
+
+  <%= f.form_group do %>
+    <%= f.primary "Create Computer" %>
+  <% end %>
+<% end %>
+
