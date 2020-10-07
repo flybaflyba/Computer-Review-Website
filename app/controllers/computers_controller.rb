@@ -12,6 +12,7 @@ class ComputersController < ApplicationController
     if @computer.save
       redirect_to computers_path, notice: "Computer Created."
     else
+      render :new # update the view 
     end
   end
   
