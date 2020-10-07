@@ -1,13 +1,21 @@
 
 
 <div id='computer_<%= computer.id %>' class='computer'>
-    <p><strong>Model:</strong>  <%= link_to_unless_current computer.model, computer %> </p>
-    <p><strong>Price:</strong> <%= computer.price %> </p>
-    <p><strong>CPU:</strong> <%= computer.cpu %> </p>
-    <p><strong>OS:</strong> <%= computer.os %> </p>
-    <p><strong>Disk:</strong> <%= computer.disk %> </p>
-    <p><strong>RAM:</strong> <%= computer.ram %> </p>
-    <p><strong>Screen:</strong> <%= computer.screen %> </p>
-
+    
+    <div class="card" style="width: 18rem;">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/08/41/apple-1868496_960_720.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><p><strong>Model:</strong>  <%= link_to_unless_current computer.model, computer %> </p></h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p><strong>Price:</strong> <%= computer.price %> </p></li>
+        <li class="list-group-item"><p><strong>CPU:</strong> <%= computer.cpu %> </p></li>
+        <li class="list-group-item"><p><strong>OS:</strong> <%= computer.os %> </p></li>
+        <li class="list-group-item"><p><strong>Disk:</strong> <%= computer.disk %> </p></li>
+        <li class="list-group-item"><p><strong>RAM:</strong> <%= computer.ram %> </p></li>
+        <li class="list-group-item"><p><strong>Screen:</strong> <%= computer.screen %> </p></li>
+      </ul>
+      
+    </div>
 
 </div>

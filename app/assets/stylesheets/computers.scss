@@ -3,7 +3,20 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .computer {
-    border: thin solid #000;
-    margin: 10px;
+    margin: auto;
+    width: 50%;
+    //border: 3px solid blue;
     padding: 10px;
+    text-align: center;
+}
+
+.card {
+    margin: auto;
+    width: 50%;
+    border: 3px solid blue;
+    padding: 10px;
+}
+
+.newcomputerbutton {
+    // text-align: center;
 }
