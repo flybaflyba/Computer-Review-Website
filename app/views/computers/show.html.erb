@@ -9,14 +9,35 @@
 <%= link_to "All Computers", computers_path %>  
 
 
+<p></p>
+
 <h2>Reviews</h2>
 
 
-<%= render @computer.reviews %>
+<!--<%= render @computer.reviews %>-->
 
+
+<ul class="list-group list-group-flush">
+    <% @computer.reviews.each do |review|%>
+        <li class="list-group-item">
+            <div id='review_<%= review.id %>' class='review'>
+                <p>Content: <%= link_to_unless_current review.content, computer_review_path(@computer, review) %> </p>
+                <p>Score: <%= review.score %> </p>
+                <%= link_to "Edit", edit_computer_review_path(@computer, review) %> | 
+                <%= link_to "Delete", computer_review_path(@computer, review), method: :delete, data: {confirm: "Are you sure?" } %>
+            </div>
+        </li>
+        
+        
+    <% end %>
+</ul>
+
+
+
+<br>
 
 <%= render 'reviews/form' %>
 
 <br> 
 
-<%= link_to "New Review", new_computer_review_path(@computer), class: "btn btn-primary"%>
+<!--<%= link_to "New Review", new_computer_review_path(@computer), class: "btn btn-primary"%>-->

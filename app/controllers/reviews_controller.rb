@@ -49,7 +49,7 @@ class ReviewsController < ApplicationController
   end
   
   def load_review
-    @review = @computer.reviews.find params[:id]
+    @review = @computer.reviews.find params[:id] # load all reviews of that computer 
   end
   
   def review_params

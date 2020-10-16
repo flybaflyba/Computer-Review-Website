@@ -5,4 +5,8 @@
     <p>Created at: <%= review.created_at %></p>
     <p>Updated at: <%= review.updated_at %></p>
     
+    
+<%= link_to "Edit", edit_computer_review_path(@computer, review) %> | 
+<%= link_to "Delete", computer_review_path(@computer, review), method: :delete, data: {confirm: "Are you sure?" } %>
+    
 </div?
