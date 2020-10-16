@@ -51,6 +51,8 @@ class ComputersController < ApplicationController
   # GET - /computers/:id
   def show
     # @computer = Computer.find params[:id]
+    @review = Review.new
+    
     
   end
   

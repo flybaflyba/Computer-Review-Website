@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   
   before_action :load_computer
+  before_action :load_review, except:[:index, :new, :create]
   
   def index
     # @computer = Computer.find params[:computer_id] # /computers/3/reviews
@@ -21,16 +22,34 @@ class ReviewsController < ApplicationController
     end
   end
   
-   def show
-    @review = @computer.reviews.find params[:id]
+  def show
+    # @review = @computer.reviews.find params[:id]
   end
   
+  def edit 
+  end
   
+  def update  
+    if @review.update review_params
+      redirect_to [@computer, @review], notice: "Review Updated."
+    else 
+      render :edit
+    end
+  end
+  
+  def destroy  
+    @review.destroy
+    redirect_to computer_reviews_path(@computer)
+  end
   
   private 
   
   def load_computer 
     @computer = Computer.find params[:computer_id] # /computers/3/reviews  
+  end
+  
+  def load_review
+    @review = @computer.reviews.find params[:id]
   end
   
   def review_params

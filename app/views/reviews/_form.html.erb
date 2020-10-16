@@ -1,0 +1,12 @@
+
+
+
+
+<%= bootstrap_form_with(model: [@computer, @review], local: true, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
+  <%= f.alert_message "Please fix the errors below.", error_summary: false %>
+  <%= f.text_area :content %>
+  <%= f.text_field :score %>
+  <%= f.form_group do %>
+      <%= f.primary @review.persisted? ? "Update Review" : "Create Review"%>
+  <% end %>
+<% end %>
