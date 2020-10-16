@@ -2,5 +2,8 @@
 
 <%= render @review %>
 
+<br>
 
-
+<%= link_to "Edit", edit_computer_review_path(@computer, @review) %> | 
+<%= link_to "Delete", computer_review_path(@computer, @review), method: :delete, data: {confirm: "Are you sure?" } %> | 
+<%= link_to "All Reviews", computer_reviews_path %>  
