@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review = Review.new review_params
     @review.computer = @computer
     if @computer.reviews << @review 
-      redirect_to computer_reviews_path(@computer), notice: "Review Created."
+      redirect_to computer_path(@computer), notice: "Review Created."
     else 
       render :new
     end
@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
   
   def update  
     if @review.update review_params
-      redirect_to [@computer, @review], notice: "Review Updated."
+      redirect_to [@computer], notice: "Review Updated."
     else 
       render :edit
     end
@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   
   def destroy  
     @review.destroy
-    redirect_to computer_reviews_path(@computer)
+    redirect_to computer_path(@computer)
   end
   
   private 
