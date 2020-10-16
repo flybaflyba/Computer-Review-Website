@@ -1,0 +1,8 @@
+<div id='review_<%= review.id %>' class='review'>
+   
+    <p>Content: <%= link_to_unless_current review.content, computer_review_path(@computer, review) %> </p>
+    <p>Score: <%= review.score %></p>
+    <p>Created at: <%= review.created_at %></p>
+    <p>Updated at: <%= review.updated_at %></p>
+    
+</div?

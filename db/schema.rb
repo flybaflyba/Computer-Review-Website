@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_07_033540) do
+ActiveRecord::Schema.define(version: 2020_10_16_041133) do
 
   create_table "computers", force: :cascade do |t|
     t.string "model"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_10_07_033540) do
     t.string "disk"
     t.string "ram"
     t.string "screen"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "score"
+    t.integer "computer_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
