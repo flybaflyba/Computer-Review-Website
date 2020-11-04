@@ -3,6 +3,7 @@ class ComputersController < ApplicationController
   # call load_computer before every pubice method get called, expect...
   before_action :load_computer, except: [:index, :new, :create]
   before_action :authenticate, except: [:index, :show]
+  # before_action :right_person(@computer), except: [:index, :show]
   # stating which HTTP verb and what URL will call that method.
   
   
@@ -32,7 +33,9 @@ class ComputersController < ApplicationController
   
   # GET - /computers/:id/edit
   def edit
-    # right_person(@computer)
+    if !right_person(@computer)
+       redirect_to root_path, alert: "Invalid Request"
+    end
     # @computer = Computer.find params[:id]
   end
   
