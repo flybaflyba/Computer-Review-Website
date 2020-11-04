@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create 
     @user = User.where(email: params[:email]).first
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+     login(@user)
       redirect_to root_path, notice: "Logged In"
     else
       redirect_to login_path, alert: "invalid email/password"
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:user_id] = nil
+    logout
     redirect_to root_path, notice: "Logged out"
   end
   
