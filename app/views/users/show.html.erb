@@ -5,3 +5,6 @@
 <p>Firstname: <%= current_user.firstname %></p>
 <p>Lastname: <%= current_user.lastname %></p>
 <p>Email: <%= current_user.email %></p>
+
+<%= link_to "Edit", edit_user_path(@user) %> | 
+<%= link_to "Delete", @user, method: :delete, data: {confirm: "Are you sure?" } %> 
