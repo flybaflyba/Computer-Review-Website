@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
     end
     
     def current_user
+     
        
         # if @current_user
         #     @current_user
@@ -37,7 +38,7 @@ class ApplicationController < ActionController::Base
         # do it in one line
         
         @current_user ||= User.find session[:user_id] if session[:user_id]  # if there is a user found, return the user, other wise, return nil
-
+        
     end
     
     # make the method visibe to view files 

@@ -27,21 +27,21 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
-  # PATCH/PUT - /computers/:id
   def update
-    # @computer = Computer.find params[:id]
-    if @computer.update computer_params
-      redirect_to @computer, notice: "Computer Updated."
+    @user = current_user
+    if @user.update user_params
+      redirect_to current_user, notice: "Account Updated."
     else
       render :edit
     end
   end
   
-  # DELETE - /computers/:id
   def destroy
-    # @computer = Computer.find params[:id]
-    @computer.destroy
-    redirect_to @computer, alert: "Computer Deleted."
+    
+    @user = current_user
+    @user.destroy
+    logout
+    redirect_to root_path, alert: "Account Deleted."
   end
   
   private 
