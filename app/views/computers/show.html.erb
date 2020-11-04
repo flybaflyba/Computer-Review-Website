@@ -4,8 +4,14 @@
 
 <!--<%= link_to "Reviews", computer_reviews_path(@computer) %> |-->
 
-<%= link_to "Edit", edit_computer_path(@computer) %> | 
-<%= link_to "Delete", @computer, method: :delete, data: {confirm: "Are you sure?" } %> | 
+
+<% if right_person(@computer) %>
+    <%= link_to "Edit", edit_computer_path(@computer) %> | 
+    <%= link_to "Delete", @computer, method: :delete, data: {confirm: "Are you sure?" } %> | 
+<% end %>
+
+
+
 <%= link_to "All Computers", computers_path %>  
 
 

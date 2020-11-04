@@ -3,9 +3,20 @@ class ApplicationController < ActionController::Base
     private 
     
     def authenticate
-        unless current_user
+        if current_user == nil
             redirect_to login_path, alert: "You must login to perform this action"
         end
+    end
+    
+    def right_person(computer)
+        # if current_user[:user_id] != computer[:user_id]
+        #     redirect_to computer_path(computer), alert: "You don't own this computer"
+        # end
+        if current_user
+            current_user[:id] == computer[:user_id]
+        end
+        
+        
     end
     
     def login(user)
@@ -30,7 +41,7 @@ class ApplicationController < ActionController::Base
     end
     
     # make the method visibe to view files 
-    helper_method :current_user 
+    helper_method :current_user, :right_person
     
     
     

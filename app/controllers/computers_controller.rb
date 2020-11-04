@@ -9,6 +9,9 @@ class ComputersController < ApplicationController
   # GET - /computers
   def index
     @computers = Computer.all
+    # only display current users' computers, this is not we want in this app, every one should be able to see all computers 
+    # @computers = current_user.computers
+    
   end
   
   # GET - /computers/new
@@ -19,6 +22,7 @@ class ComputersController < ApplicationController
   # POST - /computers
   def create
     @computer = Computer.new computer_params
+    @computer.user = current_user
     if @computer.save
       redirect_to computers_path, notice: "Computer Created."
     else
@@ -28,6 +32,7 @@ class ComputersController < ApplicationController
   
   # GET - /computers/:id/edit
   def edit
+    # right_person(@computer)
     # @computer = Computer.find params[:id]
   end
   
