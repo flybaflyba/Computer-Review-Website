@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   
   
+  # get 'sessions/new'
   # get 'users/index'
   # # get 'reviews/index'
   # get 'computers/index'
   
+ 
+  
   get 'signup' => 'users#new'
   resources :users
+  resources :sessions
+  get 'login' => 'sessions#new'
+  
   # get computers/6/reviews/3
   resources :computers do 
     resources :reviews
