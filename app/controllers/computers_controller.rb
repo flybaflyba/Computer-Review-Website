@@ -2,7 +2,7 @@ class ComputersController < ApplicationController
   
   # call load_computer before every pubice method get called, expect...
   before_action :load_computer, except: [:index, :new, :create]
-  
+  before_action :authenticate, except: [:index, :show]
   # stating which HTTP verb and what URL will call that method.
   
   

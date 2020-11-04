@@ -2,6 +2,12 @@ class ApplicationController < ActionController::Base
     
     private 
     
+    def authenticate
+        unless current_user
+            redirect_to login_path, alert: "You must login to perform this action"
+        end
+    end
+    
     def login(user)
         session[:user_id] = user.id
     end
