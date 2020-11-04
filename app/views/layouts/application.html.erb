@@ -35,8 +35,12 @@
           <%= nav_link "Computers", computers_path %>
         </ul>
         <ul class="navbar-nav pull-right">
-          <%= nav_link "Sign Up", signup_path %>
-          <%= nav_link "Log In", login_path  %>
+          <% if session[:user_id] != nil %>
+            <%= nav_link "Logout", "/logout" %>
+          <% else %>
+            <%= nav_link "Sign Up", signup_path %>
+            <%= nav_link "Login", login_path  %>
+          <% end %>
         </ul>
       </div>
     </nav>
