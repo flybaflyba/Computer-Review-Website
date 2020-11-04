@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
   
+  get 'users/index'
   # get 'reviews/index'
   get 'computers/index'
   
+  resources :users
   # get computers/6/reviews/3
   resources :computers do 
     resources :reviews
