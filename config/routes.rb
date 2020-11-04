@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
   
   # get computers/6/reviews/3
   resources :computers do 
