@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   
   before_action :load_computer
   before_action :load_review, except:[:index, :new, :create]
+  before_action :authenticate, except: [:index, :show]
   
   def index
     # @computer = Computer.find params[:computer_id] # /computers/3/reviews
