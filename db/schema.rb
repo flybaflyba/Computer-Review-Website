@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_041133) do
+ActiveRecord::Schema.define(version: 2020_11_04_031403) do
 
   create_table "computers", force: :cascade do |t|
     t.string "model"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2020_10_16_041133) do
     t.integer "score"
     t.integer "computer_id"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "firstname"
+    t.string "lastname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
