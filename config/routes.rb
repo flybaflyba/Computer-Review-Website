@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :sessions
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
+  get '/auth/:provider/callback', to: 'authentications#create'
   
   # get computers/6/reviews/3
   resources :computers do 
