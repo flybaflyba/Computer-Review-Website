@@ -52,8 +52,12 @@ class ComputersController < ApplicationController
   # DELETE - /computers/:id
   def destroy
     # @computer = Computer.find params[:id]
-    @computer.destroy
-    redirect_to @computer, alert: "Computer Deleted."
+    if !right_person(@computer)
+       redirect_to root_path, alert: "Invalid Request"
+    else
+      @computer.destroy
+      redirect_to @computer, alert: "Computer Deleted."
+    end
   end
   
   # GET - /computers/:id
