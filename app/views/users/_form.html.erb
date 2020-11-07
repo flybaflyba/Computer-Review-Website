@@ -6,10 +6,11 @@
   <%= f.alert_message "Please fix the errors below.", error_summary: false %>
   <%= f.text_field :username %>
   
-  <% if @user.has_password? %>
-    <%= f.text_field :firstname %>
-    <%= f.text_field :lastname %>
-  <% end %>
+
+  <%= f.text_field :firstname %>
+  <%= f.text_field :lastname %>
+
+
   
   <%= f.email_field :email %>
   
