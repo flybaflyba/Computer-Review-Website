@@ -75,7 +75,7 @@ class ComputersController < ApplicationController
   end
   
   def computer_params
-    params.require(:computer).permit(:model,:price,:cpu,:os,:disk,:ram,:screen)
+    params.require(:computer).permit(:model,:price,:cpu,:os,:disk,:ram,:screen,:image)
   end
   
 end

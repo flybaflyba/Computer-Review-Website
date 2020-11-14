@@ -9,6 +9,16 @@
   <%= f.text_field :disk %>
   <%= f.text_field :ram %>
   <%= f.text_field :screen %>
+  
+  <%= f.file_field :image %>
+  
+  <!--<p><%=@computer.image.attached?%></p>-->
+  
+  <!--<% if @computer.image.attached? %>-->
+  <!--  <%= image_tag @computer.image %>-->
+  <!--<% end  %>-->
+  <!--<br>-->
+  
 
   <%= f.form_group do %>
     <%= f.primary @computer.persisted? ? "Update Computer" : "Create Computer"%>
