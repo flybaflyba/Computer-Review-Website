@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get 'computers/index'
   
  
+  get 'search', to: "computers#search"
   
   get 'signup' => 'users#new'
   resources :users

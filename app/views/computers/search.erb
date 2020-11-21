@@ -1,0 +1,12 @@
+<h1>Search Results</h1>
+
+<ul class="list-group list-group-flush">
+    <% @computers.each do |computer|%>
+        <li class="list-group-item">
+            <div id='computer_<%= computer.id %>' class='computer'>
+                <p><%= link_to_unless_current computer.model, computer %> </p>
+                <p><%= computer.price %> </p>
+            </div>
+        </li>
+    <% end %>
+</ul>

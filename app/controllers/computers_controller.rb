@@ -1,7 +1,7 @@
 class ComputersController < ApplicationController
   
   # call load_computer before every pubice method get called, expect...
-  before_action :load_computer, except: [:index, :new, :create]
+  before_action :load_computer, except: [:index, :new, :create, :search]
   before_action :authenticate, except: [:index, :show]
   # before_action :right_person(@computer), except: [:index, :show]
   # stating which HTTP verb and what URL will call that method.
@@ -67,6 +67,10 @@ class ComputersController < ApplicationController
     
     
   end
+  
+  def search # use SQL to search, ? is the placeholder, it means the parameter
+    @computers = Computer.where("model LIKE ?", "%" + params[:q] + "%")
+  end 
   
   private 
   

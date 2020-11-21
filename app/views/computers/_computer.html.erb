@@ -4,6 +4,7 @@
     
     <div class="card" style="width: 18rem;">
       <!--<img src="https://cdn.pixabay.com/photo/2016/11/29/08/41/apple-1868496_960_720.jpg" class="card-img-top" alt="...">-->
+
       <div class="card-img-top"> 
       <% if @computer.image.attached? %>
         <%= image_tag @computer.image, style: "width: 100%; display: block" %>
@@ -14,7 +15,7 @@
         <p>...</p>
       <% end  %>
       </div>
-      
+
       <div class="card-body">
         <h5 class="card-title"><p><strong>Model:</strong>  <%= link_to_unless_current computer.model, computer %> </p></h5>
       </div>
