@@ -37,7 +37,7 @@ class ComputersTest < ApplicationSystemTestCase
   test "creating new computer works" do 
     user = login_user
     
-    visit new_computer_path
+    visit new_computer_path(user)
     
     fill_in "Model", with: "test model"
     fill_in "Price", with: "test price"
@@ -55,10 +55,12 @@ class ComputersTest < ApplicationSystemTestCase
   end
   
   test "creating new computer fails" do 
+    # we have to login before create 
     user = login_user
     
-    visit new_computer_path
+    visit new_computer_path(user) # this works, without parentheses and parameter, it also works 
     
+    # if we don't fill up the model, it will fail
     # fill_in "Model", with: "test model"
     fill_in "Price", with: "test price"
     fill_in "Cpu", with: "test cpu"
