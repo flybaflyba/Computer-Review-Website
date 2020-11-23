@@ -83,16 +83,16 @@ class ComputersTest < ApplicationSystemTestCase
     
     # test for show action 
     
-    visit computers_path(computer)
+    visit computer_path(computer)
     
     assert_text "testmodel"
     
     # test for edit screen 
     
-    # click_on "Edit"
-    visit edit_computer_path(computer)
+    click_on "Edit"
+    # visit edit_computer_path(computer)
     
-    assert_text "Edit Computer"
+    assert_text "Edit Computer" # should see this title on update computer screen  
     
     fill_in "Model", with: "testmodelupdated"
     
@@ -100,11 +100,49 @@ class ComputersTest < ApplicationSystemTestCase
     
     # test if the compater is updated 
     
-    assert_text "Computer Updated"
+    assert_text "Computer Updated" 
     assert_text "testmodelupdated"
     
-    
   end
+  
+  test "deleting a computer yes" do 
+    user = login_user 
+    computer = FactoryBot.create :computer, user: user, model: "testmodel"
+    
+    visit computer_path(computer)
+    
+    click_on "Delete"
+    
+    # yes delete is 
+    begin
+      page.driver.browser.switch_to.alert.accept
+    rescue Selenium::WebDriver::Error::NoAlertOpenError
+      retry
+    end
+    
+    assert_text "Computer Deleted"
+    refute_text "testmodel"
+  end
+  
+    test "deleting a computer no" do 
+    user = login_user 
+    computer = FactoryBot.create :computer, user: user, model: "testmodel"
+    
+    visit computer_path(computer)
+    
+    click_on "Delete"
+    
+    # yes delete is 
+    begin
+      page.driver.browser.switch_to.alert.dismiss
+    rescue Selenium::WebDriver::Error::NoAlertOpenError
+      retry
+    end
+    
+    assert_text "testmodel"
+    refute_text "Computer Deleted"
+  end
+  
   
   
   
