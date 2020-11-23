@@ -77,6 +77,36 @@ class ComputersTest < ApplicationSystemTestCase
   end
   
   
+  test "show, edit and update then show again" do 
+    user = login_user 
+    computer = FactoryBot.create :computer, user: user, model: "testmodel"
+    
+    # test for show action 
+    
+    visit computers_path(computer)
+    
+    assert_text "testmodel"
+    
+    # test for edit screen 
+    
+    # click_on "Edit"
+    visit edit_computer_path(computer)
+    
+    assert_text "Edit Computer"
+    
+    fill_in "Model", with: "testmodelupdated"
+    
+    click_on "Update Computer"
+    
+    # test if the compater is updated 
+    
+    assert_text "Computer Updated"
+    assert_text "testmodelupdated"
+    
+    
+  end
+  
+  
   
   
 end
