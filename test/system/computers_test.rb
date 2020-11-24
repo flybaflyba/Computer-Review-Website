@@ -20,6 +20,7 @@ class ComputersTest < ApplicationSystemTestCase
   end
   
   
+  
   test "visiting computers page" do
     
     # factorybot create user for each computer. 
@@ -113,9 +114,9 @@ class ComputersTest < ApplicationSystemTestCase
     
     click_on "Delete"
     
-    # yes delete is 
+    # yes delete it  
     begin
-      page.driver.browser.switch_to.alert.accept
+      page.driver.browser.switch_to.alert.accept # this took me a while to find ... 
     rescue Selenium::WebDriver::Error::NoAlertOpenError
       retry
     end
@@ -132,7 +133,7 @@ class ComputersTest < ApplicationSystemTestCase
     
     click_on "Delete"
     
-    # yes delete is 
+    # no delete 
     begin
       page.driver.browser.switch_to.alert.dismiss
     rescue Selenium::WebDriver::Error::NoAlertOpenError
